@@ -3,8 +3,11 @@ version: '3.8'
 services:
   minio:
     image: quay.io/minio/minio
-    command: server /data --console-address ":9090"
+    command: server /data --console-address ":9080"
     container_name: minio
+    ports:
+      - "9000:9000"
+      - "9080:9080"
     volumes:
       - ~/minio/data:/data
     environment:
